@@ -1,0 +1,115 @@
+// Java program to convert currency using Swing
+
+import javax.swing.*;
+import.java.awt.*;
+import java.awt.event.*;
+
+public class GFG {
+
+  // Now to create a function to convert from rupees to dollar and vice versa
+  public static void converter() {
+    
+    // This creates a new frame using JFrame
+    JFrame f = new JFrame("Converter");
+    
+    // Create two labels
+    JLabel label1, label2;
+    
+    // Create two text fields; One field is for rupees and the other is for dollars
+    JTextField textfield1, textfield2;
+    
+    // Create three buttons
+    JButton button1, button2, button3;
+    
+    // Name the labels and setting the boundaries for the labels
+    label1 = new JLabel("Rupees: ");
+    label1.setBounds(20, 40, 60, 30);
+    label2 = new JLabel("Dollars");
+    label2.setBounds(170, 40, 60, 30);
+    
+    // Initialize the fields with 0 by default and setting the boundaries for the fields
+    textfield1 = new JTextField("0");
+    textfield1.setBounds(20, 40, 60, 30);
+    textfield2 = new JTextField("0");
+    textfield2.setBounds(170, 40, 60, 30);
+    
+    // Creating one button for Rupees, one button for the dollars and one button to close
+    // Also setting the boundaries for each button
+    button1 = new JButton("Rupees");
+    button1.setBounds(50, 80, 60, 15);
+    button2 = new JButton("Dollar");
+    button2.setBounds(190, 80, 60, 15);
+    button3 = new JButton("Close");
+    button3.setBounds(150, 150, 60, 30);
+    
+    // Now we add an action listener to the 1st button
+    button1.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+      
+        // Convert to double
+        double d = Double.parseDouble(textfield1.getText());
+        
+        //Convert Rupees to Dollars
+        double d1 = (d / 65.25);
+        
+        // Get the string value of the calculated value
+        String string1 = String.valueOf(d1)l
+        
+        // Place the string value in the text box
+        textfield2.setText(string1);
+        
+        }
+        
+    });
+    
+    // Now to add an action listener to button 2
+    b2.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        
+        // Convert to double
+        double d2 = Double.parseDouble(textfield2.getText());
+        
+        // Convert Dollars to Rupees
+        double d3 = (d2 * 65.25);
+        
+        // Get the string value of the calculated value
+        String string2 = String.valueOf(d3);
+        
+        // Placing string value into the text box
+        textfield1.setText(string2);
+        }
+    });
+    
+    // Action listener for the close button
+    button3.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        f.dispose();
+        }
+    });
+    
+    // Default method for closing the frame
+    f.addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        System.exit(0);
+        }
+    });
+    
+    // Adding created objects to the form
+    f.add(label1);
+    f.add(textfield1);
+    f.add(label2);
+    f.add(textfield2);
+    f.add(button1);
+    f.add(button2);
+    f.add(button3);
+    
+    f.setLayout(null);
+    f.setSize(400, 300);
+    f.setVisible(true);
+    
+    }
+    
+    // Driver code
+    public static void main(String args[]) {
+      converter();
+    }
